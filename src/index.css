@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: red;
+  background-color: #1a1a1a; /* Fundo escuro para contrastar com as cores vibrantes */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,9 +13,89 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-img {
-  width: 200px;
-  height: 200px;
+/* Estilo geral para a lista de animes */
+.anime-list {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Título da seção */
+.anime-list h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6347; /* Tom laranja vibrante para destacar o título */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Sombra para dar mais destaque */
+}
+
+/* Contêiner dos cards com Grid */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+  gap: 15px; /* Diminui o espaço entre os cards */
+  justify-items: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* Estilo do card */
+.card {
+  background-color: #4b79a1; /* Azul profundo e vibrante */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombras mais fortes para profundidade */
+  width: 100%; /* Garantir que o card ocupe toda a largura disponível */
+  max-width: 280px; /* Limita a largura do card para ser um pouco menor */
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Efeito de hover para o card */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Efeito mais forte ao passar o mouse */
+}
+
+/* Estilo da imagem dentro do card */
+.card-img {
+  width: 100%;
+  height: 200px; /* Definir altura fixa para as imagens */
+  object-fit: contain; /* Garante que a imagem não seja cortada e mantenha a proporção */
+  border-bottom: 5px solid #ff6347; /* Linha laranja abaixo da imagem para chamar atenção */
   display: block;
-  margin: 0 auto;
+}
+
+/* Estilo do conteúdo do card */
+.card-content {
+  padding: 15px;
+  text-align: left;
+  background-color: #2d3e50; /* Fundo mais escuro para contraste com o texto */
+  color: #fff; /* Texto branco para boa leitura */
+}
+
+/* Título dentro do card */
+.card-title {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffeb3b; /* Amarelo vibrante para o título dentro do card */
+  margin: 10px 0;
+}
+
+/* Estilo de carregamento */
+.loading {
+  font-size: 1.5rem;
+  color: #ff6347; /* Cor vibrante enquanto carrega */
+}
+
+/* Responsividade: ajuste para telas menores */
+@media (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas médias */
+  }
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(1, 1fr); /* 1 coluna em telas pequenas */
+  }
 }
