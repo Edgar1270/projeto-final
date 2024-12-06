@@ -5,27 +5,34 @@ import "./index.css";
 function UserList() {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("https://ecom-back-strapi.onrender.com/api/animes", {
-        headers: {
-          Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMyODMyMTM0LCJleHAiOjE3MzU0MjQxMzR9.sJACvTbr35OFmbnGqprTbbLFSMEH5A3S7EbM_p39vOY",
-        },
-      })
-      .then((response) => {
-        console.log(response.data.data);
-        setUsers(response.data.data);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+    const fetchUsers = async () => {
+      try {
+        const response = await axios.get("https://ecom-back-strapi.onrender.com/api/animes", {
+          headers: {
+            Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzMyODMyMTM0LCJleHAiOjE3MzU0MjQxMzR9.sJACvTbr35OFmbnGqprTbbLFSMEH5A3S7EbM_p39vOY",
+          },
+        });
+        setUsers(response.data.data); // Set the users data
+      } catch (error) {
+        console.error("Erro ao buscar os dados:", error);
+        setError("Erro ao carregar os animes. Tente novamente mais tarde.");
+      } finally {
+        setLoading(false); // Finaliza o carregamento
+      }
+    };
+
+    fetchUsers();
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div>Loading...</div>; // Exibe a mensagem de carregando enquanto aguarda os dados
+  }
+
+  if (error) {
+    return <div>{error}</div>; // Exibe erro caso haja falha na requisição
   }
 
   return (
@@ -41,6 +48,33 @@ function UserList() {
             />
             <div className="card-content">
               <h3 className="card-title">{user.attributes.title}</h3>
+
+              {/* Exibindo a sinopse */}
+              <p className="card-description">
+                <strong>Sinopse:</strong> {user.attributes.synopsis}
+              </p>
+
+              {/* Exibindo os gêneros */}
+              <p className="card-genre">
+              <strong>Gênero:</strong> {user.attributes.genre}
+                
+                {/* <strong>Gênero:</strong>
+                {user.attributes.genres && user.attributes.genres.length > 0 ? (
+                  user.attributes.genres.map((genre) => (
+                    <span key={genre.id}>
+                      {genre.name}
+                      {index < user.attributes.genre}
+                    </span>
+                  ))
+                ) : (
+                  <span>Nenhum gênero disponível</span>
+                )} */}
+              </p>
+
+              {/* Exibindo o número de episódios */}
+              <p className="card-episodes">
+                <strong>Episódios:</strong> {user.attributes.episodes}
+              </p>
             </div>
           </div>
         ))}
