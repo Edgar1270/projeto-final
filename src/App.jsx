@@ -61,7 +61,7 @@ function AnimeList() {
 
   return (
     <div className="anime-list">
-      <h2>Animes</h2>
+      <h2>Meus Animes</h2>
       <div className="card-container">
         {animeData.map(({ id, attributes }) => {
           const { coverImage, title, synopsis, genre, episodes, rating } = attributes;
