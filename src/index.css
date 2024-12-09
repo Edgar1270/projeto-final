@@ -24,7 +24,7 @@
   color: #fbbd13; /* Amarelo vibrante similar ao Crunchyroll */
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.8); /* Sombra para dar destaque */
   letter-spacing: 1px;
-  text-transform: uppercase;
+  text-transform: none; /* Remover uppercase, mais leve */
   font-weight: 600;
 }
 
@@ -64,7 +64,12 @@
   height: 200px; /* Tamanho original da imagem */
   object-fit: contain; /* Mantém a imagem proporcional sem cortar */
   border-bottom: 4px solid #fbbd13; /* Linha amarela abaixo da imagem para chamar atenção */
-  transition: none; /* Removendo qualquer efeito de transição */
+  transition: opacity 0.3s ease; /* Transição suave na opacidade */
+}
+
+/* Efeito de hover na imagem */
+.card:hover .card-img {
+  opacity: 0.85; /* Leve transparência para destacar o card */
 }
 
 /* Estilo do conteúdo do card */
@@ -118,6 +123,10 @@
 @media (max-width: 768px) {
   .card-container {
     grid-template-columns: repeat(1, 1fr); /* 1 coluna em telas pequenas */
+  }
+
+  .loading {
+    font-size: 2rem; /* Maior fonte para o carregamento em telas pequenas */
   }
 }
 
