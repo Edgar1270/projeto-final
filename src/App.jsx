@@ -56,25 +56,18 @@ function UserList() {
 
               {/* Exibindo os gêneros */}
               <p className="card-genre">
-              <strong>Gênero:</strong> {user.attributes.genre}
-                
-                {/* <strong>Gênero:</strong>
-                {user.attributes.genres && user.attributes.genres.length > 0 ? (
-                  user.attributes.genres.map((genre) => (
-                    <span key={genre.id}>
-                      {genre.name}
-                      {index < user.attributes.genre}
-                    </span>
-                  ))
-                ) : (
-                  <span>Nenhum gênero disponível</span>
-                )} */}
+                <strong>Gênero:</strong> {user.attributes.genre}
               </p>
 
               {/* Exibindo o número de episódios */}
               <p className="card-episodes">
                 <strong>Episódios:</strong> {user.attributes.episodes}
               </p>
+
+               {/* Exibindo a nota */}
+               <p className="card-nota">
+                <strong>Nota:</strong> {user.attributes.rating}
+               </p>
             </div>
           </div>
         ))}

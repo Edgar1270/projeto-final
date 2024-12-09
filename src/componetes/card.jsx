@@ -7,9 +7,9 @@ function AnimeCard({ title, episodes, status, rating, genre}) {
         <h2 className="anime-title">{title}</h2>
         <p className="anime-episodes">Episódios: {episodes}</p>
         <p className="anime-status">Status: {status}</p>
-        <p className="anime-genre">Genero: {genre}</p>
+        <p className="anime-genre">Gênero: {genre}</p>
+        <div className="anime-rating">Nota: {rating}</div>
       </div>
-      <div className="anime-rating">{rating}</div>
     </div>
   );
 }

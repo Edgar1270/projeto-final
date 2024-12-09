@@ -40,7 +40,7 @@
 
 /* Estilo do card */
 .card {
-  background: linear-gradient(135deg, rgba(1, 33, 68, 0.7), rgba(5, 36, 54, 0.7)); /* Gradiente escuro para o card */
+  background: rgba(0, 0, 0, 0.75); /* Fundo escuro sólido para evitar vazamento de cor */
   border-radius: 15px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); /* Sombras mais suaves para profundidade */
   width: 100%;
@@ -61,7 +61,7 @@
 /* Estilo da imagem dentro do card */
 .card-img {
   width: 100%;
-  height: 200px; /* Definindo uma altura padrão e fixa para a imagem */
+  height: 200px; /* Tamanho original da imagem */
   object-fit: contain; /* Mantém a imagem proporcional sem cortar */
   border-bottom: 4px solid #fbbd13; /* Linha amarela abaixo da imagem para chamar atenção */
   transition: none; /* Removendo qualquer efeito de transição */
@@ -71,7 +71,7 @@
 .card-content {
   padding: 20px;
   text-align: left;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro translúcido */
+  background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro translúcido */
   color: #fff;
   border-top: 1px solid #fbbd13;
 }
