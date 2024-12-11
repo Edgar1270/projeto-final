@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function AnimeCard({ title, episodes, status, rating, genre}) {
   return (
     <div className="anime-card">
